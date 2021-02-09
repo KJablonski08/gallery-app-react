@@ -1,14 +1,16 @@
 import React from 'react';
 
-const PhotoDetail = () => {
+const PhotoDetail = ({ pic }) => {
 	return (
 		<li>
 			<img
-				src='https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg'
+				src={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`}
 				alt=''
 			/>
 		</li>
 	);
 };
+
+// https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_n.jpg
 
 export default PhotoDetail;

@@ -5,7 +5,6 @@ import {
 	InputGroup,
 	InputLeftElement,
 	Container,
-	Button,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 

@@ -12,7 +12,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 const SearchBar = () => {
 	return (
 		<div>
-			<Container>
+			<Container className='horizontal-spacing'>
 				<Stack spacing={4}>
 					<InputGroup>
 						<InputLeftElement

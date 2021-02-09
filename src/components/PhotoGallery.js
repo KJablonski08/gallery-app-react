@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PhotoDetail from './PhotoDetail';
 import axios from 'axios';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
@@ -28,10 +27,20 @@ const PhotoGallery = ({ query }) => {
 				let pics = res.data.photos.photo;
 				let photoObjs = [];
 				pics.map((pic) => {
-					let url = `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`;
-					photoObjs.push({
-						src: url,
-					});
+					let photoObj = {
+						src: `https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`,
+						width: '',
+						height: '',
+					};
+					axios
+						.get(
+							`https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=${API_KEY}&photo_id=${pic.id}&format=json&nojsoncallback=1`
+						)
+						.then((res) => {
+							photoObj.height = res.data.sizes.size[6].height;
+							photoObj.width = res.data.sizes.size[6].width;
+						})
+						.then(photoObjs.push(photoObj));
 				});
 				setPhotos(photoObjs);
 			})

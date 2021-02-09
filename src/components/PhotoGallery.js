@@ -54,25 +54,23 @@ const PhotoGallery = ({ query }) => {
 		);
 	}
 	return (
-		<div className='gallery-container'>
+		<div className='gallery-container horizontal-spacing'>
 			<h1>Results</h1>
-			<ul>
-				<Gallery photos={photos} onClick={openLightbox} />
-				<ModalGateway>
-					{viewerIsOpen ? (
-						<Modal onClose={closeLightbox}>
-							<Carousel
-								currentIndex={currentImage}
-								views={photos.map((x) => ({
-									...x,
-									srcset: x.srcSet,
-									caption: x.title,
-								}))}
-							/>
-						</Modal>
-					) : null}
-				</ModalGateway>
-			</ul>
+			<Gallery photos={photos} onClick={openLightbox} />
+			<ModalGateway>
+				{viewerIsOpen ? (
+					<Modal onClose={closeLightbox}>
+						<Carousel
+							currentIndex={currentImage}
+							views={photos.map((x) => ({
+								...x,
+								srcset: x.srcSet,
+								caption: x.title,
+							}))}
+						/>
+					</Modal>
+				) : null}
+			</ModalGateway>
 		</div>
 	);
 };

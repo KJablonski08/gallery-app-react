@@ -45,7 +45,7 @@ const PhotoGallery = ({ query }) => {
 				setPhotos(photoObjs);
 			})
 			.catch(console.error);
-	}, []);
+	}, [query]);
 	if (!photos) {
 		return (
 			<div>

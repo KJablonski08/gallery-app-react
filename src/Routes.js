@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Gallery from './components/Gallery';
+import PhotoGallery from './components/PhotoGallery';
 
 const Routes = ({ query }) => {
 	return (
 		<Switch>
 			<Route exact path='/'>
-				<Gallery query={query} />
+				<PhotoGallery query={query} />
 			</Route>
 		</Switch>
 	);

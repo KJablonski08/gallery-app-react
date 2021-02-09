@@ -11,6 +11,4 @@ const PhotoDetail = ({ pic }) => {
 	);
 };
 
-// https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_n.jpg
-
 export default PhotoDetail;
